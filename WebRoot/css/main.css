@@ -1,0 +1,50 @@
+.tab {
+	text-decoration: none;
+}
+
+ul li {
+	list-style-type: none;
+	display: inline;
+	margin-right: 20px;
+}
+
+a.logout {
+	background: url(../img/user_logout.png) no-repeat right;
+	padding-right: 20px;
+}
+
+.header {
+	margin: auto;
+	width: 95%;
+	height: 7%;
+}
+
+.mainbody {
+	background-image: url('./img/wew.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.main_container {
+	height: 950px;
+	background-image: url("../img/wew.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	margin: auto;
+	width: 60%;
+}
+
+.main_content {
+	margin: auto;
+	width: 95%;
+	padding-top: 22%;
+}
+
+.tabDiv {
+	
+}
+
+.right_header {
+	float: right;
+	display: inline;
+}

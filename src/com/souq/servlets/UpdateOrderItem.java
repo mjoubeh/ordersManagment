@@ -1,0 +1,59 @@
+package com.souq.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.souq.bean.ItemBean;
+import com.souq.bean.OrderBean;
+import com.souq.db.DB;
+
+/**
+ * Servlet implementation class UpdateOrder
+ */
+@WebServlet("/UpdateOrderItem")
+public class UpdateOrderItem extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UpdateOrderItem() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		DB db = new DB();
+
+		try {
+			ItemBean item = new ItemBean();
+			item.setId(Long.parseLong(request.getParameter("id")));
+			item.setStatus(request.getParameter("status"));
+			item.setQuantity(Integer.parseInt(request.getParameter("quantity")));
+			item.setPrice(Double.parseDouble(request.getParameter("price")));
+
+			db.updateItem(item);
+			out.write("1");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			out.write("0");
+		} finally {
+			out.flush();
+			out.close();
+		}
+
+	}
+
+}
